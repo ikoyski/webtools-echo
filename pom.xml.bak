@@ -124,7 +124,6 @@
               <goal>revision</goal>
             </goals>
             <configuration>
-              <failOnNoGitDirectory>false</failOnNoGitDirectory>
               <includeOnlyProperties>
                 <includeOnlyProperty>^git.build.host$</includeOnlyProperty>
                 <includeOnlyProperty>^git.dirty$</includeOnlyProperty>
@@ -159,14 +158,14 @@
             </goals>
           </execution>
           <!-- attached to Maven verify phase -->
-          <execution>
-            <id>report</id>
-            <phase>test</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
+		  <execution>
+		    <id>report</id>
+		    <phase>test</phase>
+		    <goals>
+		      <goal>report</goal>
+		    </goals>
+		  </execution>
+        </executions>        
       </plugin>
       <plugin>
         <groupId>com.github.ekryd.sortpom</groupId>

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.server.ResponseStatusException;
 
 import com.ikoyski.webtools.dto.EchoRequest;
 import com.ikoyski.webtools.dto.EchoResponse;
@@ -35,13 +34,8 @@ public class EchoController {
 
     LOGGER.debug("Echo request received {}", echoRequest);
     
-    if (echoRequest.getMessage() == null) {
-      LOGGER.error("No message was sent");
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-    }
-
-    EchoResponse echoResponse = EchoResponse.builder().message(echoService.echo(
-        echoRequest.getMessage())).build();
+    EchoResponse echoResponse = new EchoResponse();
+    echoResponse.setMessage(echoService.echo(echoRequest.getMessage()));   
 
     LOGGER.debug("Echo response returned {}", echoResponse);
 
