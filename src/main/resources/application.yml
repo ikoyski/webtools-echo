@@ -1,0 +1,26 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: webtools-echo
+  jackson:
+    default-property-inclusion: NON_NULL
+    deserialization:
+      fail-on-unknown-properties: false
+management:
+  endpoints:
+    health:
+      id: health
+      sensitive: false
+      enabled: true
+    info:
+      id: info
+      sensitive: false
+      enabled: true
+  info:
+    git:
+      mode: full    
+logging:
+   level:
+      com:
+         ikoyski: DEBUG   
