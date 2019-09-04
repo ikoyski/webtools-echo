@@ -28,8 +28,7 @@ public class WebtoolsControllerAdvice {
   }
 
   private ErrorResponse handleError(String message) {
-    ErrorResponse errorResponse = ErrorResponse.builder().message(message).build();    
-    return errorResponse;
+    return ErrorResponse.builder().message(message).build();    
   }
 
   @ResponseStatus(HttpStatus.BAD_REQUEST)
